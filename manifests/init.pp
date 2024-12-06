@@ -29,18 +29,18 @@
 #   of usbguard-daemon.conf
 # @param rules Array of strings with rules to pass to usbguard::rule
 #
-# @example 
+# @example
 #   include ::usbguard
 #
 # @example pass rules class param
 #   class { 'usbguard':
-#     rules => [ 
+#     rules => [
 #       'allow with-interface equals { 08:*:* }',
 #       'reject with-interface all-of { 08:*:* 03:00:* }',
 #     ],
 #   }
 #
-class usbguard(
+class usbguard (
   Boolean $manage_service = true,
   Boolean $manage_package  = true,
   Boolean $manage_rules_file  = true,
@@ -52,7 +52,7 @@ class usbguard(
   String $daemon_audit_file_path = '/var/log/usbguard/usbguard-audit.log',
   Boolean $daemon_device_rules_with_port = false,
   Enum['allow', 'block', 'reject'] $daemon_implicit_policy_target = 'block',
-  Array[String] $daemon_ipc_allowed_groups = [ 'wheel' ],
+  Array[String] $daemon_ipc_allowed_groups = ['wheel'],
   Array[String] $daemon_ipc_allowed_users = ['root'],
   Enum['allow','block','reject','keep','apply-policy'] $daemon_present_controller_policy = 'keep',
   Enum['allow','block','reject','keep','apply-policy'] $daemon_present_device_policy= 'apply-policy',
@@ -61,13 +61,13 @@ class usbguard(
   # rules to provide by hiera/lookup or as class param
   Optional[Array[String]] $rules = undef,
 ) {
-  contain ::usbguard::install
-  contain ::usbguard::config
-  contain ::usbguard::service
+  contain usbguard::install
+  contain usbguard::config
+  contain usbguard::service
 
-  Class['::usbguard::install']
-  -> Class['::usbguard::config']
-  ~> Class['::usbguard::service']
+  Class['usbguard::install']
+  -> Class['usbguard::config']
+  ~> Class['usbguard::service']
 
   if $rules != undef {
     $rules.each |$rule| {
