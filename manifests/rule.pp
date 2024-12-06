@@ -7,7 +7,7 @@
 #
 # @param rule A line of rules.conf
 # @param order Order for the concat resource
-define usbguard::rule(
+define usbguard::rule (
   String $rule = $title,
   String $order = '500',
 ) {
@@ -15,9 +15,9 @@ define usbguard::rule(
     fail('You must include usbguard before calling usbguard::rule')
   }
 
-  if $::usbguard::manage_rules_file {
-    concat::fragment { "${::usbguard::daemon_rule_file} ${title}":
-      target  => $::usbguard::daemon_rule_file,
+  if $usbguard::manage_rules_file {
+    concat::fragment { "${usbguard::daemon_rule_file} ${title}":
+      target  => $usbguard::daemon_rule_file,
       content => "${rule}\n",
       order   => $order,
     }
