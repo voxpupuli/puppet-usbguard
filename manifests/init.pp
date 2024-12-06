@@ -46,24 +46,24 @@ class usbguard (
   Boolean $manage_service = true,
   Boolean $manage_package  = true,
   Boolean $manage_rules_file  = true,
-  String  $package_name = 'usbguard',
-  String  $service_name = 'usbguard',
+  String[1] $package_name = 'usbguard',
+  String[1] $service_name = 'usbguard',
   Enum['running', 'stopped'] $service_ensure = 'running',
 
   # usbguard-daemon.conf settings
-  String $daemon_audit_file_path = '/var/log/usbguard/usbguard-audit.log',
+  Stdlib::Absolutepath $daemon_audit_file_path = '/var/log/usbguard/usbguard-audit.log',
   Enum['keep', 'all', 'none', 'internal'] $daemon_authorized_default = none,
   Boolean $daemon_device_rules_with_port = false,
   Enum['allow', 'block', 'reject'] $daemon_implicit_policy_target = 'block',
-  Array[String] $daemon_ipc_allowed_groups = ['wheel'],
-  Array[String] $daemon_ipc_allowed_users = ['root'],
+  Array[String[1]] $daemon_ipc_allowed_groups = ['wheel'],
+  Array[String[1]] $daemon_ipc_allowed_users = ['root'],
   Enum['allow','block','reject','keep','apply-policy'] $daemon_present_controller_policy = 'keep',
   Enum['allow','block','reject','keep','apply-policy'] $daemon_present_device_policy= 'apply-policy',
   Boolean $daemon_restore_controller_device_state = false,
-  String $daemon_rule_file = '/etc/usbguard/rules-managed-by-puppet.conf',
+  Stdlib::Absolutepath $daemon_rule_file = '/etc/usbguard/rules-managed-by-puppet.conf',
 
   # rules to provide by hiera/lookup or as class param
-  Optional[Array[String]] $rules = undef,
+  Optional[Array[String[1]]] $rules = undef,
 ) {
   contain usbguard::install
   contain usbguard::config
