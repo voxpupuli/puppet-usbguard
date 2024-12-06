@@ -2,6 +2,8 @@
 #
 # @private
 class usbguard::config {
+  assert_private()
+
   $ipc_allowed_users = join($usbguard::daemon_ipc_allowed_users, ' ')
   $ipc_allowed_groups= join($usbguard::daemon_ipc_allowed_groups, ' ')
 
