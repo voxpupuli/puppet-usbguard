@@ -1,5 +1,3 @@
-# usbguard
-#
 # @summary Install and configure usbguard
 #
 # @param manage_package Should the module manage the package or not
@@ -34,7 +32,7 @@
 # @param rules Array of strings with rules to pass to usbguard::rule
 #
 # @example
-#   include ::usbguard
+#   include usbguard
 #
 # @example pass rules class param
 #   class { 'usbguard':
@@ -52,7 +50,7 @@ class usbguard (
   String  $service_name = 'usbguard',
   Enum['running', 'stopped'] $service_ensure = 'running',
 
-  # usbguard-daemon.conf settings settings
+  # usbguard-daemon.conf settings
   String $daemon_audit_file_path = '/var/log/usbguard/usbguard-audit.log',
   Enum['keep', 'all', 'none', 'internal'] $daemon_authorized_default = none,
   Boolean $daemon_device_rules_with_port = false,
