@@ -13,6 +13,8 @@
 #   also disable the service.
 # @param daemon_audit_file_path Path to the usbguard audit log file.
 #   AuditFilePath setting of usbguard-daemon.conf
+# @param daemon_authorized_default AuthorizedDefault setting of
+#   usbguard-daemon.conf
 # @param daemon_device_rules_with_port DeviceRulesWithPort setting of
 #   usbguard-daemon.conf
 # @param daemon_implicit_policy_target ImplicitPolicyTarget setting of
@@ -25,6 +27,8 @@
 #   setting of usbguard-daemon.conf
 # @param daemon_present_device_policy PresentDevicePolicy setting
 #   of usbguard-daemon.conf
+# @param daemon_restore_controller_device_state
+#   RestoreControllerDeviceState setting of usbguard-daemon.conf
 # @param daemon_rule_file Path to the rules file. RuleFile setting
 #   of usbguard-daemon.conf
 # @param rules Array of strings with rules to pass to usbguard::rule
@@ -50,12 +54,14 @@ class usbguard (
 
   # usbguard-daemon.conf settings settings
   String $daemon_audit_file_path = '/var/log/usbguard/usbguard-audit.log',
+  Enum['keep', 'all', 'none', 'internal'] $daemon_authorized_default = none,
   Boolean $daemon_device_rules_with_port = false,
   Enum['allow', 'block', 'reject'] $daemon_implicit_policy_target = 'block',
   Array[String] $daemon_ipc_allowed_groups = ['wheel'],
   Array[String] $daemon_ipc_allowed_users = ['root'],
   Enum['allow','block','reject','keep','apply-policy'] $daemon_present_controller_policy = 'keep',
   Enum['allow','block','reject','keep','apply-policy'] $daemon_present_device_policy= 'apply-policy',
+  Boolean $daemon_restore_controller_device_state = false,
   String $daemon_rule_file = '/etc/usbguard/rules-managed-by-puppet.conf',
 
   # rules to provide by hiera/lookup or as class param
