@@ -1,11 +1,6 @@
 # usbguard::config
 #
 # @private
-#
-# @summary A short summary of the purpose of this class
-#
-# @example
-#   this is a private class
 class usbguard::config {
   $ipc_allowed_users = join($usbguard::daemon_ipc_allowed_users, ' ')
   $ipc_allowed_groups= join($usbguard::daemon_ipc_allowed_groups, ' ')
@@ -31,7 +26,7 @@ class usbguard::config {
   }
 
   if $usbguard::manage_rules_file {
-    # unfortunatly no comments allowed in the rules file (v0.7)
+    # unfortunately no comments allowed in the rules file (v0.7)
     # can't add header "Managed by puppet"
     concat { $usbguard::daemon_rule_file:
       ensure => present,
