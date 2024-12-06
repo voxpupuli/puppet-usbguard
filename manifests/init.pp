@@ -75,7 +75,7 @@ class usbguard (
 
   if $rules != undef {
     $rules.each |$rule| {
-      ::usbguard::rule { $rule: }
+      usbguard::rule { $rule: }
     }
   }
 }
