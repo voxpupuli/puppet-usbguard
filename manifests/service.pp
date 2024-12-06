@@ -7,6 +7,8 @@
 # @example
 #   this is a private class - don't use directly
 class usbguard::service {
+  assert_private()
+
   if $usbguard::manage_service {
     $enable_param = $usbguard::service_ensure ? {
       'stopped' => false,
