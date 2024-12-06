@@ -9,14 +9,14 @@ class usbguard::config {
 
   $daemon_conf = @("CONTENT")
     # Managed by puppet
-    RuleFile=${usbguard::daemon_rule_file}
-    ImplicitPolicyTarget=${usbguard::daemon_implicit_policy_target}
-    PresentDevicePolicy=${usbguard::daemon_present_device_policy}
-    PresentControllerPolicy=${usbguard::daemon_present_controller_policy}
-    IPCAllowedUsers=${ipc_allowed_users}
-    IPCAllowedGroups=${ipc_allowed_groups}
-    DeviceRulesWithPort=${usbguard::daemon_device_rules_with_port}
     AuditFilePath=${usbguard::daemon_audit_file_path}
+    DeviceRulesWithPort=${usbguard::daemon_device_rules_with_port}
+    ImplicitPolicyTarget=${usbguard::daemon_implicit_policy_target}
+    IPCAllowedGroups=${ipc_allowed_groups}
+    IPCAllowedUsers=${ipc_allowed_users}
+    PresentControllerPolicy=${usbguard::daemon_present_controller_policy}
+    PresentDevicePolicy=${usbguard::daemon_present_device_policy}
+    RuleFile=${usbguard::daemon_rule_file}
     | CONTENT
 
   file { '/etc/usbguard/usbguard-daemon.conf':
