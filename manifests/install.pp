@@ -9,7 +9,7 @@
 class usbguard::install {
   if $usbguard::manage_package {
     package { $usbguard::package_name:
-      ensure => 'present',
+      ensure => installed,
     }
   }
 }
