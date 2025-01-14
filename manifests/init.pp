@@ -5,6 +5,7 @@
 # @param manage_rules_file Should the module manage the rules file or not.
 #   If set to false usbguard::rule will not manage the rules and also
 #   rules passed by the rules param of this class will be ignored.
+# @param package_ensure The ensure value of the package resource.
 # @param package_name Name of the package containing usbguard
 # @param service_name Name of the service.
 # @param service_ensure Should the service be running or stopped. Stopped will
@@ -46,6 +47,7 @@ class usbguard (
   Boolean $manage_service = true,
   Boolean $manage_package  = true,
   Boolean $manage_rules_file  = true,
+  String[1] $package_ensure = installed,
   String[1] $package_name = 'usbguard',
   String[1] $service_name = 'usbguard',
   Enum['running', 'stopped'] $service_ensure = 'running',

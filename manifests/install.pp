@@ -11,7 +11,7 @@ class usbguard::install {
 
   if $usbguard::manage_package {
     package { $usbguard::package_name:
-      ensure => installed,
+      ensure => $usbguard::package_ensure,
     }
   }
 }
