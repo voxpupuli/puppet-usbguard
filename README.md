@@ -13,11 +13,7 @@
 
 ## Description
 
-Install usbguard and configure the daemon and rules.
-
-https://dkopecek.github.io/usbguard/
-
-Usbguard is available for RHEL/CentOS >= 7.4 and Fedora.
+Install [usbguard](https://usbguard.github.io/) and configure the daemon and rules.
 
 ## Setup
 
