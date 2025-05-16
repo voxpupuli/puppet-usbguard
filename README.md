@@ -52,8 +52,7 @@ usbguard::rule { 'allow usb disks without keyboard interface':
 ## Limitations
 
 * The usbguard package for RHEL/CentOS is only available for 7.4 and later
-  or you  need to configure a external repo on your own (this module will
-  never fiddle with your repo config)
+  or you need to configure a external repo on your own.
 
 ## Development
 
