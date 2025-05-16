@@ -56,4 +56,4 @@ usbguard::rule { 'allow usb disks without keyboard interface':
 
 ## Development
 
-No defined process available. :-) Github pull-request style.
+See [How to Contribute](https://voxpupuli.org/contributing/) on voxpupuli.org.
