@@ -1,12 +1,12 @@
 {
-  "name": "vinzent-usbguard",
+  "name": "puppet-usbguard",
   "version": "0.2.0",
-  "author": "Thomas Mueller",
+  "author": "Vox Pupuli",
   "summary": "Install & configure usbguard",
   "license": "Apache-2.0",
-  "source": "https://github.com/vinzent/puppet-usbguard",
-  "project_page": "https://github.com/vinzent/puppet-usbguard",
-  "issues_url": "https://github.com/vinzent/puppet-usbguard/issues",
+  "source": "https://github.com/voxpupuli/puppet-usbguard.git",
+  "project_page": "https://github.com/voxpupuli/puppet-usbguard",
+  "issues_url": "https://github.com/voxpupuli/puppet-usbguard/issues",
   "dependencies": [
     {
       "name": "puppetlabs-stdlib",
@@ -31,8 +31,5 @@
       "name": "puppet",
       "version_requirement": ">= 4.7.0 < 9.0.0"
     }
-  ],
-  "pdk-version": "1.0.1",
-  "template-url": "file:///opt/puppetlabs/pdk/share/cache/pdk-module-template.git",
-  "template-ref": "heads/master-0-g5db7961"
+  ]
 }
