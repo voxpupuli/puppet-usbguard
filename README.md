@@ -25,14 +25,14 @@ Install [usbguard](https://usbguard.github.io/) and configure the daemon and rul
 
 ### Beginning with usbguard
 
-Just `include ::usbguard` to start without any rule.
+Just `include usbguard` to start without any rule.
 
 ## Usage
 
-Install, configure some rules and start the service:
+Install, configure some rules, and start the service:
 
 ```puppet
-include ::usbguard
+include usbguard
 
 $rule_content = @(CONTENT)
   allow with-interface equals { 08:*:* }
