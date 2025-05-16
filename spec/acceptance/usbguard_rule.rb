@@ -11,7 +11,7 @@ describe 'usbguard::rule defined type' do
       EOS
     end
 
-    it_behaves_like 'a idempotent resource'
+    it_behaves_like 'an idempotent resource'
     describe file('/etc/usbguard/rules-managed-by-puppet.conf') do
       it { is_expected.to be_file }
       its(:content) { is_expected.to match(%r{allow with-interface equals \{ 08:\*:\* \}}) }
@@ -39,7 +39,7 @@ describe 'usbguard::rule defined type' do
       EOS
     end
 
-    it_behaves_like 'a idempotent resource'
+    it_behaves_like 'an idempotent resource'
 
     describe file('/etc/usbguard/rules-managed-by-puppet.conf') do
       it { is_expected.to be_file }

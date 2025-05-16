@@ -10,7 +10,7 @@ describe 'usbguard class' do
       EOS
     end
 
-    it_behaves_like 'a idempotent resource'
+    it_behaves_like 'an idempotent resource'
 
     describe package('usbguard') do
       it { is_expected.to be_installed }
@@ -51,7 +51,7 @@ describe 'usbguard class' do
       EOS
     end
 
-    it_behaves_like 'a idempotent resource'
+    it_behaves_like 'an idempotent resource'
 
     describe file('/etc/usbguard/rules-managed-by-puppet.conf') do
       it { is_expected.to be_file }
