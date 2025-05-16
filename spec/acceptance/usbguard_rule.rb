@@ -4,7 +4,7 @@ require 'spec_helper_acceptance'
 
 describe 'usbguard::rule defined type' do
   context 'with a rule (single line)' do
-    let(:pp) do
+    let(:manifest) do
       <<-EOS
         class { 'usbguard': }
         usbguard::rule { 'allow with-interface equals { 08:*:* }': }
@@ -19,7 +19,7 @@ describe 'usbguard::rule defined type' do
   end
 
   context 'with a rule (multi line)' do
-    let(:pp) do
+    let(:manifest) do
       <<-EOS
       include ::usbguard
 

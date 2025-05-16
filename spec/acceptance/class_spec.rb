@@ -4,7 +4,7 @@ require 'spec_helper_acceptance'
 
 describe 'usbguard class' do
   context 'simple include' do
-    let(:pp) do
+    let(:manifest) do
       <<-EOS
         class { 'usbguard': }
       EOS
@@ -31,7 +31,7 @@ describe 'usbguard class' do
   end
 
   context 'with some rules by param' do
-    let(:pp) do
+    let(:manifest) do
       <<-EOS
       $rule_content = @(CONTENT)
         allow with-interface equals { 08:*:* }
