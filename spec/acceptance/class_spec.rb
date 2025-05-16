@@ -1,14 +1,16 @@
+# frozen_string_literal: true
+
 require 'spec_helper_acceptance'
 
 describe 'usbguard class' do
   context 'simple include' do
-    let(:pp) do
+    let(:manifest) do
       <<-EOS
         class { 'usbguard': }
       EOS
     end
 
-    it_behaves_like 'a idempotent resource'
+    it_behaves_like 'an idempotent resource'
 
     describe package('usbguard') do
       it { is_expected.to be_installed }
@@ -29,7 +31,7 @@ describe 'usbguard class' do
   end
 
   context 'with some rules by param' do
-    let(:pp) do
+    let(:manifest) do
       <<-EOS
       $rule_content = @(CONTENT)
         allow with-interface equals { 08:*:* }
@@ -49,7 +51,7 @@ describe 'usbguard class' do
       EOS
     end
 
-    it_behaves_like 'a idempotent resource'
+    it_behaves_like 'an idempotent resource'
 
     describe file('/etc/usbguard/rules-managed-by-puppet.conf') do
       it { is_expected.to be_file }
