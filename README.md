@@ -13,11 +13,7 @@
 
 ## Description
 
-Install usbguard and configure the daemon and rules.
-
-https://dkopecek.github.io/usbguard/
-
-Usbguard is available for RHEL/CentOS >= 7.4 and Fedora.
+Install [usbguard](https://usbguard.github.io/) and configure the daemon and rules.
 
 ## Setup
 
@@ -29,14 +25,14 @@ Usbguard is available for RHEL/CentOS >= 7.4 and Fedora.
 
 ### Beginning with usbguard
 
-Just `include ::usbguard` to start without any rule.
+Just `include usbguard` to start without any rule.
 
 ## Usage
 
-Install, configure some rules and start the service:
+Install, configure some rules, and start the service:
 
 ```puppet
-include ::usbguard
+include usbguard
 
 $rule_content = @(CONTENT)
   allow with-interface equals { 08:*:* }
@@ -56,9 +52,8 @@ usbguard::rule { 'allow usb disks without keyboard interface':
 ## Limitations
 
 * The usbguard package for RHEL/CentOS is only available for 7.4 and later
-  or you  need to configure a external repo on your own (this module will
-  never fiddle with your repo config)
+  or you need to configure a external repo on your own.
 
 ## Development
 
-No defined process available. :-) Github pull-request style.
+See [How to Contribute](https://voxpupuli.org/contributing/) on voxpupuli.org.
