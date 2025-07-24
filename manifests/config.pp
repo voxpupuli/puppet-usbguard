@@ -9,6 +9,7 @@ class usbguard::config {
 
   $daemon_conf = @("CONTENT")
     # Managed by puppet
+    AuditBackend=${usbguard::daemon_audit_backend}
     AuditFilePath=${usbguard::daemon_audit_file_path}
     AuthorizedDefault=${usbguard::daemon_authorized_default}
     DeviceRulesWithPort=${usbguard::daemon_device_rules_with_port}
