@@ -1,10 +1,10 @@
-## Release 0.2.0
+## v0.2.0
 
 **Features**
 
 * Added ability to provide rules by usbguard class rules parameter
 
-## Release 0.1.0
+## v0.1.0
 
 **Features**
 
