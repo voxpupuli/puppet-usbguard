@@ -10,6 +10,7 @@
 # @param service_name Name of the service.
 # @param service_ensure Should the service be running or stopped. Stopped will
 #   also disable the service.
+# @param daemon_audit_backend AuditBackend setting of usbguard-daemon.conf
 # @param daemon_audit_file_path Path to the usbguard audit log file.
 #   AuditFilePath setting of usbguard-daemon.conf
 # @param daemon_authorized_default AuthorizedDefault setting of
@@ -53,6 +54,7 @@ class usbguard (
   Enum['running', 'stopped'] $service_ensure = 'running',
 
   # usbguard-daemon.conf settings
+  Enum['FileAudit', 'LinuxAudit'] $daemon_audit_backend = 'FileAudit',
   Stdlib::Absolutepath $daemon_audit_file_path = '/var/log/usbguard/usbguard-audit.log',
   Enum['keep', 'all', 'none', 'internal'] $daemon_authorized_default = none,
   Boolean $daemon_device_rules_with_port = false,
