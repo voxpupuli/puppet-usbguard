@@ -1,0 +1,3 @@
+usbguard::daemon_ipc_allowed_groups:
+  - root
+  - plugdev

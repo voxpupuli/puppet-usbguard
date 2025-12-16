@@ -7,6 +7,15 @@ describe 'usbguard' do
     context "on #{os}" do
       let(:facts) { os_facts }
 
+      let(:ipc_allowed_groups) do
+        case facts[:os]['family']
+        when 'Debian'
+          %w[root plugdev]
+        else
+          %w[wheel]
+        end
+      end
+
       it { is_expected.to compile.with_all_deps }
 
       context 'with defaults' do
@@ -29,7 +38,7 @@ describe 'usbguard' do
               AuthorizedDefault=none
               DeviceRulesWithPort=false
               ImplicitPolicyTarget=block
-              IPCAllowedGroups=wheel
+              IPCAllowedGroups=#{ipc_allowed_groups.join(' ')}
               IPCAllowedUsers=root
               PresentControllerPolicy=keep
               PresentDevicePolicy=apply-policy
