@@ -63,6 +63,7 @@ The following parameters are available in the `usbguard` class:
 * [`daemon_restore_controller_device_state`](#-usbguard--daemon_restore_controller_device_state)
 * [`daemon_rule_file`](#-usbguard--daemon_rule_file)
 * [`rules`](#-usbguard--rules)
+* [`daemon_ipc_access_control_files`](#-usbguard--daemon_ipc_access_control_files)
 
 ##### <a name="-usbguard--manage_package"></a>`manage_package`
 
@@ -227,6 +228,14 @@ Data type: `Optional[Array[String[1]]]`
 Array of strings with rules to pass to usbguard::rule
 
 Default value: `undef`
+
+##### <a name="-usbguard--daemon_ipc_access_control_files"></a>`daemon_ipc_access_control_files`
+
+Data type: `Stdlib::Absolutepath`
+
+
+
+Default value: `'/etc/usbguard/IPCAccessControl.d/'`
 
 ### <a name="usbguard--config"></a>`usbguard::config`
 

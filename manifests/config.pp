@@ -16,6 +16,7 @@ class usbguard::config {
     ImplicitPolicyTarget=${usbguard::daemon_implicit_policy_target}
     IPCAllowedGroups=${ipc_allowed_groups}
     IPCAllowedUsers=${ipc_allowed_users}
+    IPCAccessControlFiles=${usbguard::daemon_ipc_access_control_files}
     PresentControllerPolicy=${usbguard::daemon_present_controller_policy}
     PresentDevicePolicy=${usbguard::daemon_present_device_policy}
     RestoreControllerDeviceState=${usbguard::daemon_restore_controller_device_state}
