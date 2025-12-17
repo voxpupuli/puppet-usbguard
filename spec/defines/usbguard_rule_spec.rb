@@ -12,6 +12,8 @@ describe 'usbguard::rule' do
 
       it { is_expected.to compile.with_all_deps }
 
+      it { is_expected.to have_usbguard__rule_resource_count(1) }
+
       it do
         is_expected.to contain_concat__fragment('/etc/usbguard/rules-managed-by-puppet.conf allow with-interface equals { 08:*:* }').
           with_target('/etc/usbguard/rules-managed-by-puppet.conf').
