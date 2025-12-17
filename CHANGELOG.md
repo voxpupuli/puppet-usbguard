@@ -4,7 +4,22 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
-## [v1.1.0](https://github.com/voxpupuli/puppet-usbguard/tree/v1.1.0) (2025-07-24)
+## [v2.0.0](https://github.com/voxpupuli/puppet-usbguard/tree/v2.0.0) (2025-12-17)
+
+[Full Changelog](https://github.com/voxpupuli/puppet-usbguard/compare/v1.1.0...v2.0.0)
+
+**Breaking changes:**
+
+- Set `IPCAllowedGroups` on Debian and Ubuntu to the package default [\#24](https://github.com/voxpupuli/puppet-usbguard/pull/24) ([kenyon](https://github.com/kenyon))
+- Drop puppet, update openvox minimum version to 8.19 [\#15](https://github.com/voxpupuli/puppet-usbguard/pull/15) ([TheMeier](https://github.com/TheMeier))
+
+**Implemented enhancements:**
+
+- Add `IPCAccessControlFiles` to daemon configuration [\#25](https://github.com/voxpupuli/puppet-usbguard/pull/25) ([kenyon](https://github.com/kenyon))
+- Add support for Debian 13 [\#22](https://github.com/voxpupuli/puppet-usbguard/pull/22) ([kenyon](https://github.com/kenyon))
+- Add support for EL10 [\#21](https://github.com/voxpupuli/puppet-usbguard/pull/21) ([kenyon](https://github.com/kenyon))
+
+## [v1.1.0](https://github.com/voxpupuli/puppet-usbguard/tree/v1.1.0) (2025-07-25)
 
 [Full Changelog](https://github.com/voxpupuli/puppet-usbguard/compare/v1.0.0...v1.1.0)
 
