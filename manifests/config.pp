@@ -4,9 +4,6 @@
 class usbguard::config {
   assert_private()
 
-  $ipc_allowed_users = join($usbguard::daemon_ipc_allowed_users, ' ')
-  $ipc_allowed_groups= join($usbguard::daemon_ipc_allowed_groups, ' ')
-
   $daemon_conf = @("CONTENT")
     # Managed by puppet
     AuditBackend=${usbguard::daemon_audit_backend}
@@ -14,8 +11,8 @@ class usbguard::config {
     AuthorizedDefault=${usbguard::daemon_authorized_default}
     DeviceRulesWithPort=${usbguard::daemon_device_rules_with_port}
     ImplicitPolicyTarget=${usbguard::daemon_implicit_policy_target}
-    IPCAllowedGroups=${ipc_allowed_groups}
-    IPCAllowedUsers=${ipc_allowed_users}
+    IPCAllowedGroups=${usbguard::daemon_ipc_allowed_groups.join(' ')}
+    IPCAllowedUsers=${usbguard::daemon_ipc_allowed_users.join(' ')}
     IPCAccessControlFiles=${usbguard::daemon_ipc_access_control_files}
     PresentControllerPolicy=${usbguard::daemon_present_controller_policy}
     PresentDevicePolicy=${usbguard::daemon_present_device_policy}
