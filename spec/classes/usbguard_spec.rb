@@ -18,10 +18,11 @@ describe 'usbguard' do
 
       it { is_expected.to compile.with_all_deps }
 
+      it { is_expected.to contain_class('usbguard::install').that_comes_before('Class[usbguard::config]') }
+      it { is_expected.to contain_class('usbguard::config').that_notifies('Class[usbguard::service]') }
+      it { is_expected.to contain_class('usbguard::service') }
+
       context 'with defaults' do
-        it { is_expected.to contain_class('usbguard::install').that_comes_before('Class[usbguard::config]') }
-        it { is_expected.to contain_class('usbguard::config').that_notifies('Class[usbguard::service]') }
-        it { is_expected.to contain_class('usbguard::service') }
         it { is_expected.to contain_package('usbguard').with_ensure('installed') }
         it { is_expected.to contain_service('usbguard').with_ensure('running').with_enable(true) }
 
