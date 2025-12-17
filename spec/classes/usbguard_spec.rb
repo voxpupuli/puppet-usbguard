@@ -40,6 +40,7 @@ describe 'usbguard' do
               ImplicitPolicyTarget=block
               IPCAllowedGroups=#{ipc_allowed_groups.join(' ')}
               IPCAllowedUsers=root
+              IPCAccessControlFiles=/etc/usbguard/IPCAccessControl.d/
               PresentControllerPolicy=keep
               PresentDevicePolicy=apply-policy
               RestoreControllerDeviceState=false

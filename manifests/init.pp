@@ -61,6 +61,7 @@ class usbguard (
   Enum['allow', 'block', 'reject'] $daemon_implicit_policy_target = 'block',
   Array[String[1]] $daemon_ipc_allowed_groups = ['wheel'],
   Array[String[1]] $daemon_ipc_allowed_users = ['root'],
+  Stdlib::Absolutepath $daemon_ipc_access_control_files = '/etc/usbguard/IPCAccessControl.d/',
   Enum['allow','block','reject','keep','apply-policy'] $daemon_present_controller_policy = 'keep',
   Enum['allow','block','reject','keep','apply-policy'] $daemon_present_device_policy= 'apply-policy',
   Boolean $daemon_restore_controller_device_state = false,
