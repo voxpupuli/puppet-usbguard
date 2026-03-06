@@ -27,12 +27,12 @@ describe 'usbguard' do
         it { is_expected.to contain_service('usbguard').with_ensure('running').with_enable(true) }
 
         it do
-          is_expected.to contain_file('/etc/usbguard/usbguard-daemon.conf').
-            with_ensure('file').
-            with_owner('root').
-            with_group('root').
-            with_mode('0600').
-            with_content(<<~CONFIG)
+          is_expected.to contain_file('/etc/usbguard/usbguard-daemon.conf')
+            .with_ensure('file')
+            .with_owner('root')
+            .with_group('root')
+            .with_mode('0600')
+            .with_content(<<~CONFIG)
               # Managed by puppet
               AuditBackend=FileAudit
               AuditFilePath=/var/log/usbguard/usbguard-audit.log
@@ -50,11 +50,11 @@ describe 'usbguard' do
         end
 
         it do
-          is_expected.to contain_concat('/etc/usbguard/rules-managed-by-puppet.conf').
-            with_ensure('present').
-            with_owner('root').
-            with_group('root').
-            with_mode('0600')
+          is_expected.to contain_concat('/etc/usbguard/rules-managed-by-puppet.conf')
+            .with_ensure('present')
+            .with_owner('root')
+            .with_group('root')
+            .with_mode('0600')
         end
 
         it { is_expected.to have_usbguard__rule_resource_count(0) }
@@ -86,8 +86,8 @@ describe 'usbguard' do
         it { is_expected.to contain_service('usbguard42').with_ensure('stopped').with_enable(false) }
 
         it do
-          is_expected.to contain_file('/etc/usbguard/usbguard-daemon.conf').
-            with_content(<<~CONFIG)
+          is_expected.to contain_file('/etc/usbguard/usbguard-daemon.conf')
+            .with_content(<<~CONFIG)
               # Managed by puppet
               AuditBackend=LinuxAudit
               AuditFilePath=/tmp/usbguard-audit.log
