@@ -21,7 +21,7 @@ describe 'usbguard::rule defined type' do
   context 'with a rule (multi line)' do
     let(:manifest) do
       <<-EOS
-      include ::usbguard
+      include usbguard
 
       $rule_content = @(CONTENT)
         allow with-interface equals { 08:*:* }
