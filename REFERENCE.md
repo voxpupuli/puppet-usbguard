@@ -23,7 +23,7 @@ Install and configure usbguard
 
 #### Examples
 
-##### 
+#####
 
 ```puppet
 include usbguard
@@ -247,7 +247,7 @@ usbguard::install
 
 #### Examples
 
-##### 
+#####
 
 ```puppet
 private class - don't use it directly
@@ -259,7 +259,7 @@ usbguard::service
 
 #### Examples
 
-##### 
+#####
 
 ```puppet
 this is a private class - don't use directly
@@ -296,4 +296,3 @@ Data type: `String`
 Order for the concat resource
 
 Default value: `'500'`
-
